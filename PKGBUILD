@@ -25,7 +25,7 @@ source=(http://s3.amazonaws.com/influxdb/$pkgname-$pkgver.src.tar.gz
 noextract=()
 md5sums=('3780ec5d6138ab2b8e9bb0f04eaf98eb'
          '614740d388badd2d9eff437b0aeaef3e'
-         '51bb8ef59ffde35b485b3f5e411515e5')
+         'b5dfd617bd6fad4a108086ffe184d96f')
 build() {
 	cd "$srcdir/$pkgname"
     export GOPATH="$srcdir/$pkgname"
@@ -58,7 +58,7 @@ package() {
     # configuration file
     sed -i 's/\/tmp\/influxdb\/development\/db/\/var\/lib\/influxdb\/data/g' config.toml.sample
     sed -i 's/\/tmp\/influxdb\/development\/raft/\/var\/lib\/influxdb\/raft/g' config.toml.sample
-    sed -i 's/influxdb.log/\/var\/log\/influxdb.log/g' config.toml.sample
+    sed -i 's/influxdb.log/\/var\/log\/influxdb\/influxdb.log/g' config.toml.sample
     sed -i 's/.\/admin/\/usr\/share\/influxdb\/admin/g' config.toml.sample
     install -D -m644 "config.toml.sample" "$pkgdir/etc/$pkgname.conf"
 
