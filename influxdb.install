@@ -16,7 +16,4 @@ post_upgrade() {
 
            mkdir -p /var/log/influxdb
            chown influxdb.influxdb -R /var/log/influxdb
-
-           mkdir -p /run/influxdb
-           chown influxdb.influxdb /run/influxdb
 }

@@ -5,7 +5,7 @@ Description=InfluxDB
 User=influxdb
 Group=influxdb
 Type=simple
-ExecStart=/usr/bin/influxdb -config=/etc/influxdb.conf -pidfile=/run/influxdb/influxdb.pid
+ExecStart=/usr/bin/influxdb -config=/etc/influxdb.conf
 
 [Install]
 WantedBy=multi-user.target
