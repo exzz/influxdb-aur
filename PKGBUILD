@@ -8,7 +8,7 @@ arch=('i686' 'x86_64')
 url="http://influxdb.org/"
 license=('MIT')
 groups=()
-depends=('snappy', 'leveldb')
+depends=('snappy' 'leveldb')
 makedepends=('wget' 'protobuf' 'bison' 'flex' 'go')
 checkdepends=()
 optdepends=()
@@ -34,10 +34,6 @@ build() {
 	#make dependencies protobuf parser
 	make protobuf parser
     go build daemon
-
-    # clean build stuff
-    rm -rf /tmp/leveldb.influxdb.*
-    rm -rf /tmp/snappy.influxdb.*
 }
 
 check() {
