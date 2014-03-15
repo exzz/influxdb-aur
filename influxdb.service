@@ -5,6 +5,7 @@ Description=InfluxDB
 User=influxdb
 Group=influxdb
 Type=simple
+LimitNOFILE=4096
 ExecStart=/usr/bin/influxdb -config=/etc/influxdb.conf
 
 [Install]

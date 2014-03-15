@@ -24,8 +24,8 @@ source=(http://s3.amazonaws.com/influxdb/$pkgname-${pkgver//_/-}.src.tar.gz
         influxdb.install)
 noextract=()
 md5sums=('dec088e9cbb5abecce23524129778d21'
-         'b156416835f9f15191b1e061b46d7175'
-         '2c74dd09ae9cf971ddb7a78223757eda')
+         'b9f2ad83e58119bd022b8136379dc62d'
+         '6b2d8446592d11345b6c262c2ff4d480')
 
 build() {
 	cd "$srcdir/$pkgname"
