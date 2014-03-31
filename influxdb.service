@@ -7,6 +7,8 @@ Group=influxdb
 Type=simple
 LimitNOFILE=4096
 ExecStart=/usr/bin/influxdb -config=/etc/influxdb.conf
+RuntimeDirectory=/run/influxdb
+RuntimeDirectoryMode=0755
 
 [Install]
 WantedBy=multi-user.target
