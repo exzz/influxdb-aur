@@ -1,6 +1,8 @@
 # Maintainer: Nicolas Leclercq <nicolas.private@gmail.com>
+# Contributor: Charles B. Johnson <mail@cbjohnson.info>
+
 pkgname=influxdb
-pkgver=0.5.0_rc.5
+pkgver=0.5.7
 pkgrel=1
 epoch=
 pkgdesc='Scalable datastore for metrics, events, and real-time analytics'
@@ -8,8 +10,8 @@ arch=('i686' 'x86_64')
 url='http://influxdb.org/'
 license=('MIT')
 groups=()
-depends=('snappy' 'leveldb')
-makedepends=('wget' 'protobuf' 'bison' 'flex' 'go')
+depends=('leveldb')
+makedepends=('protobuf' 'bison' 'flex' 'go')
 checkdepends=()
 optdepends=()
 provides=('influxdb')
@@ -17,15 +19,15 @@ conflicts=()
 replaces=()
 backup=()
 options=()
-install=
+install='influxdb.install'
 changelog=
-source=("http://s3.amazonaws.com/influxdb/$pkgname-${pkgver//_/-}.src.tar.gz"
+source=("http://s3.amazonaws.com/influxdb/$pkgname-$pkgver.src.tar.gz"
         'influxdb.service'
         'influxdb.install')
 noextract=()
-md5sums=('dec088e9cbb5abecce23524129778d21'
-         'b9f2ad83e58119bd022b8136379dc62d'
-         '6b2d8446592d11345b6c262c2ff4d480')
+md5sums=('8bf4abae0eed2ca4ebcc1da1e2102506'
+         'b685763cc7c62d90a872498347630ba2'
+         '4bca5873a91e150bce354dc5999ecc8f')
 
 build() {
   cd "$srcdir/$pkgname"
@@ -41,9 +43,6 @@ check() {
 }
 
 package() {
-  # create user/group, home directory, log file
-  install=influxdb.install
-
   # systemctl service file
   install -D -m644  'influxdb.service' "$pkgdir/usr/lib/systemd/system/influxdb.service"
 
