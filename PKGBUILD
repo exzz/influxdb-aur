@@ -1,5 +1,7 @@
 # Maintainer: Nicolas Leclercq <nicolas.private@gmail.com>
 # Contributor: Charles B. Johnson <mail@cbjohnson.info>
+# Contributor: Daichi Shinozaki <dsdseg@gmail.com>
+# Contributor: Ben Alex <ben.alex@acegi.com.au>
 
 pkgname=influxdb
 pkgver=0.7.0
