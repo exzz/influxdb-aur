@@ -19,7 +19,7 @@ sudo pacman -U influxdb-VERSION-x86_64.pkg.tar.xz
 ## Build AUR source package
 
 ```
-makepkg --source
+mkaurball
 ```
 
 Upload influxdb-VERSION-SUBVERSION.src.tar.gz to AUR repository
