@@ -4,7 +4,7 @@
 # Contributor: Ben Alex <ben.alex@acegi.com.au>
 
 pkgname=influxdb
-pkgver=0.7.0
+pkgver=0.7.3
 pkgrel=1
 epoch=
 pkgdesc='Scalable datastore for metrics, events, and real-time analytics'
@@ -25,11 +25,13 @@ install='influxdb.install'
 changelog=
 source=("http://s3.amazonaws.com/influxdb/$pkgname-$pkgver.src.tar.gz"
         'influxdb.service'
-        'influxdb.install')
+        'influxdb.install'
+        '.AURINFO')
 noextract=()
-md5sums=('43845322c1464f9606d6b7b7b0314891'
+md5sums=('2f3efe289c43db5595b6b95f6b1d944b'
          'c59b9926d74776d5990889bd48f98543'
-         'b4203001919b80999f18ebfa564ae6e3')
+         'b4203001919b80999f18ebfa564ae6e3'
+         'SKIP')
 
 build() {
   cd "$srcdir/$pkgname"
