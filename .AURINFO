@@ -1,6 +1,6 @@
 pkgname = influxdb
-pkgver = 0.7.3
+pkgver = 0.8.3
 pkgdesc = Scalable datastore for metrics, events, and real-time analytics
 url = http://influxdb.org/
 license = MIT
-depends = protobuf bison flex go
+depends = leveldb rocksdb
