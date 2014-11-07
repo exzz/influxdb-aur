@@ -1,5 +1,5 @@
 pkgname = influxdb
-pkgver = 0.8.4
+pkgver = 0.8.5
 pkgdesc = Scalable datastore for metrics, events, and real-time analytics
 url = http://influxdb.org/
 license = MIT
