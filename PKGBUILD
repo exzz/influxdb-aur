@@ -13,7 +13,7 @@ url='http://influxdb.org/'
 license=('MIT')
 groups=()
 depends=('leveldb' 'rocksdb')
-makedepends=('protobuf' 'bison' 'flex' 'go')
+makedepends=('autoconf' 'protobuf' 'bison' 'flex' 'go' 'gawk')
 checkdepends=()
 optdepends=()
 provides=('influxdb')
@@ -41,7 +41,7 @@ build() {
   ./configure --prefix=$_prefix
   make protobuf
   make parser
-  go build -o "$pkgname" github.com/influxdb/influxdb/daemon
+  go build -tags rocksdb -o "$pkgname" github.com/influxdb/influxdb/daemon
 }
 
 check() {
@@ -58,17 +58,11 @@ package() {
   # influxdb binary
   install -D -m755 "$pkgname" "$pkgdir/usr/bin/$pkgname"
 
-  # admin console assets
-  install -d "$pkgdir/usr/share/$pkgname"
-  cp -r admin-ui "$pkgdir/usr/share/$pkgname"
-
   # configuration file
   sed -i 's/\/tmp\/influxdb\/development\/db/\/var\/lib\/influxdb\/data/g' config.sample.toml
   sed -i 's/\/tmp\/influxdb\/development\/raft/\/var\/lib\/influxdb\/raft/g' config.sample.toml
   sed -i 's/\/tmp\/influxdb\/development\/wal/\/var\/lib\/influxdb\/wal/g' config.sample.toml
   sed -i 's/influxdb.log/\/var\/log\/influxdb\/influxdb.log/g' config.sample.toml
-  sed -i 's/.\/admin/\/usr\/share\/influxdb\/admin-ui/g' config.sample.toml
-  sed -i 's/\.\.\/cert.pem/\/usr\/share\/influxdb\/cert\.pem/g' config.sample.toml
   install -D -m644 config.sample.toml "$pkgdir/etc/$pkgname.conf"
 
   # license
