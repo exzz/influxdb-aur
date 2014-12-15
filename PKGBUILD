@@ -3,9 +3,9 @@
 # Contributor: Daichi Shinozaki <dsdseg@gmail.com>
 # Contributor: Ben Alex <ben.alex@acegi.com.au>
 
-pkgname=influxdb
-pkgver=0.8.7
-pkgrel=1
+pkgname='influxdb'
+pkgver='0.8.7'
+pkgrel='1'
 epoch=
 pkgdesc='Scalable datastore for metrics, events, and real-time analytics'
 arch=('i686' 'x86_64')
